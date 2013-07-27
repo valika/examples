@@ -13,19 +13,22 @@ public class Example31 {
         Random random = new Random();
         long randomNumber = random.nextInt(MAX_RANDOM_N);
 
-        System.out.println("Sucet prvych " + randomNumber + " prvkov: " + naturalCount(randomNumber));
+        System.out.println("Sucet prvych " + randomNumber + " prirodzenych cisiel: " + naturalCount(randomNumber));
         System.out.println("Factorial z " + randomNumber + ": " + factorial(randomNumber));
         System.out.println("Cela cast odmocniny z cisla " + randomNumber + ": " + wholePartOfPower(randomNumber));
         System.out.println("Ciferny sucet cisla " + randomNumber + ": " + digitCount(randomNumber));
         System.out.println("Pocet 1 v cisle " + randomNumber + ": " + countOfOnes(randomNumber));
         System.out.println("Cislo " + randomNumber + " zapisane naopak: " + reverseNumber(randomNumber));
         long rc = 8409257607L;
-        System.out.println("Je " + rc + "platne rodne cislo : " + rcCheck(rc));
+        System.out.println("Je " + rc + " platne rodne cislo : " + rcCheck(rc));
     }
 
     private static long naturalCount(long n) {
-        //if(n>0 && )
-        return 0;
+        long result = 0;
+        for (int i = 1; i <= n; i++) {
+            result = result + i;
+        }
+        return result;
     }
 
     private static long factorial(long n) {
