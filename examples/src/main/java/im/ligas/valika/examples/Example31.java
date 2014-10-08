@@ -7,23 +7,7 @@ import java.util.Random;
  */
 public class Example31 {
 
-    private static int MAX_RANDOM_N = 1000000;
-
-    public static void main(String[] args) {
-        Random random = new Random();
-        long randomNumber = random.nextInt(MAX_RANDOM_N);
-
-        System.out.println("Sucet prvych " + randomNumber + " prirodzenych cisiel: " + naturalCount(randomNumber));
-        System.out.println("Factorial z " + randomNumber + ": " + factorial(randomNumber));
-        System.out.println("Cela cast odmocniny z cisla " + randomNumber + ": " + wholePartOfPower(randomNumber));
-        System.out.println("Ciferny sucet cisla " + randomNumber + ": " + digitCount(randomNumber));
-        System.out.println("Pocet 1 v cisle " + randomNumber + ": " + countOfOnes(randomNumber));
-        System.out.println("Cislo " + randomNumber + " zapisane naopak: " + reverseNumber(randomNumber));
-        long rc = 8409257607L;
-        System.out.println("Je " + rc + " platne rodne cislo : " + rcCheck(rc));
-    }
-
-    private static long naturalCount(long n) {
+    public long naturalCount(long n) {
         long result = 0;
         for (int i = 1; i <= n; i++) {
             result = result + i;
@@ -31,32 +15,41 @@ public class Example31 {
         return result;
     }
 
-    private static long factorial(long n) {
+    public long factorial(long n) {
+        long result = n;
+        for (long i = n - 1; i >= 1; i--) {
+            result = result * i;
+        }
+        return result;
+    }
 
+    public long wholePartOfSqrRoot(long randomNumber) {
+        return (long) Math.sqrt(randomNumber);
+    }
+
+    public long digitCount(long randomNumber) {
+        long result = 0;
+        for (int j = 1; j > 0; j++) {
+            result += (randomNumber % ((long) Math.pow(10, j))) / ((long) Math.pow(10, j - 1));
+            if (Math.pow(10, j) > randomNumber) {
+                break;
+            }
+        }
+        return result;
+    }
+
+
+    public int countOfOnes(long randomNumber) {
         return 0;
     }
 
-    private static long wholePartOfPower(long randomNumber) {
-        return 0;
-    }
-
-    private static long digitCount(long randomNumber) {
+    public long reverseNumber(long randomNumber) {
         long result = 0;
         return result;
     }
 
 
-    private static int countOfOnes(long randomNumber) {
-        return 0;
-    }
-
-    private static long reverseNumber(long randomNumber) {
-        long result = 0;
-        return result;
-    }
-
-
-    private static String rcCheck(long rc) {
+    public String rcCheck(long rc) {
         String result = null;
         return result;
     }
